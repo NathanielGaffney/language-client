@@ -3,9 +3,6 @@ import LanguageApiService from '../../services/language-service';
 import { Input, Required, Label } from '../../components/Form/Form';
 import Results from '../../components/Results/Results';
 import languageContext from '../../contexts/languageContext';
-// import { CSSTransition } from 'react-transition-group';
-// import ISOStore from '../../components/TextToSpeech/ISOStore';
-// import './LearningRoute.css';
 var msg = new SpeechSynthesisUtterance();
 msg.text = "bien y tu como estas";
 
@@ -13,7 +10,6 @@ const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogni
 const recognition = new SpeechRecognition();
 
 recognition.lang = 'en-US';
-// recognition.lang = 'es-MX';
 
 class LearningRoute extends Component {
   static contextType = languageContext;
@@ -61,10 +57,7 @@ class LearningRoute extends Component {
 
   handleSendGuess = (e) => {
     e.preventDefault();
-    //const {answer} = e.target;
     const guess = this.state.guessTerm;
-    //Sanswer.value = '';
-
     const guessBody = {
       guess
     }
@@ -120,8 +113,6 @@ class LearningRoute extends Component {
     LanguageApiService.getHead()
       .then(head => {
         console.log(this.context.language)
-        // let lang = Object.keys(ISOStore).find(key => ISOStore[key] === this.context.language.name)
-        // msg.lang = lang;
         this.setState({
           nextWord: head.nextWord,
           wordIncorrectCount: head.wordIncorrectCount,
@@ -131,11 +122,6 @@ class LearningRoute extends Component {
           guessTerm: ''
         })
       })
-  }
-
-  playSound = () => {
-    msg.text = this.state.nextWord;
-    window.speechSynthesis.speak(msg);
   }
 
   render() {
@@ -149,26 +135,13 @@ class LearningRoute extends Component {
     }
 
     return (
-      // <CSSTransition
-      //   in={!this.state.loading}
-      //   timeout={200}
-      //   classNames='guess-anim'
-      //   unmountOnExit>
       <section className="learning-container">
         {!this.state.loading && <><h2>{headerText}</h2><span className='word-translate'>{this.state.nextWord}{''}</span></>}
         <form id="learning-form" onSubmit={this.handleSendGuess}>
 
-          {/* {!this.state.guessBool && <Question handleSendGuess={this.handleSendGuess} />} */}
-
           {!this.state.guessBool && <><Label htmlFor='learn-guess-input' className="text-center">
             What's the translation for this word?
           </Label></>}
-
-          {/* {!this.state.guessBool && <div id="speech_to_text_box">
-              <button id="speech_button" type="button" onClick={this.handleSpeech}>
-                <i className="fas fa-microphone"></i>
-              </button>
-            </div>} */}
 
           {!this.state.guessBool && <Input
             id='learn-guess-input'
@@ -184,22 +157,17 @@ class LearningRoute extends Component {
           {!this.state.guessBool && <button className="guess-submit" type="submit">
             Submit your answer
           </button>}
-          {/* <CSSTransition
-              in={this.state.guessBool}
-              timeout={500}
-              classNames='guess-anim'
-              unmountOnExit> */}
+          
           <div className="results-container center DisplayScore">
             <p className='results-p'>Your total score is: {this.state.totalScore}</p>
           </div>
-          <Results
+          {this.state.guessBool && <Results
             isCorrect={this.state.isCorrect}
             totalScore={this.state.totalScore}
             guess={this.state.guessTerm}
             answer={this.state.answer}
             original={this.state.nextWord}
-            onNextWordClick={this.handleNextWord} />
-          {/* </CSSTransition> */}
+            onNextWordClick={this.handleNextWord} />}
 
         </form>
 
@@ -209,7 +177,6 @@ class LearningRoute extends Component {
         </div>
 
       </section>
-      // </CSSTransition>
     );
   }
 }
