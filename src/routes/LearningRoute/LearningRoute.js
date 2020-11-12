@@ -3,6 +3,7 @@ import LanguageApiService from '../../services/language-service';
 import { Input, Required, Label } from '../../components/Form/Form';
 import Results from '../../components/Results/Results';
 import languageContext from '../../contexts/languageContext';
+import './LearningRoute.css'
 var msg = new SpeechSynthesisUtterance();
 msg.text = "bien y tu como estas";
 
@@ -112,7 +113,6 @@ class LearningRoute extends Component {
     }
     LanguageApiService.getHead()
       .then(head => {
-        console.log(this.context.language)
         this.setState({
           nextWord: head.nextWord,
           wordIncorrectCount: head.wordIncorrectCount,
@@ -125,7 +125,6 @@ class LearningRoute extends Component {
   }
 
   render() {
-    console.log(this.state.nextWord);
     let headerText = 'Translate the word:'
     if (this.state.isCorrect && this.state.guessBool) {
       headerText = 'You were correct! :D'

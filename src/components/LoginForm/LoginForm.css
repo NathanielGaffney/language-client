@@ -1,15 +1,61 @@
-.LoginForm{
-    width: fit-content;
-    background-color: #e7d8c9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10%;
+footer a {
+    text-align: center;
 }
 
-.LoginItem{
-    margin-bottom: 5%;
+.main-form {
+    width: 80vw;
+    background-color: lightseagreen;
+}
+
+.main-form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.error-alert p {
+    border-radius: 10px;
+    background-color: #f5c1bc;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Input {
+    margin: 0 0 10px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+    width: 100%;
+    padding: 5px 0 5px 5px;
+    border-radius: 5px;
+}
+
+.Button {
+    width: 70%;
+    font-size: 1.2em;
+    padding: 10px 5px;
+    border-radius: 10px;
+    background-color: #d9f2c7;
+    cursor: pointer;
+}
+
+.Button:hover, .Button:active {
+    background-color: #9cc493;
+}
+
+@media screen and (min-width: 768px) {
+    .main-form {
+        max-width: 50%;
+    }
+}
+
+
+@media screen and (min-width: 1024px) {
+    .main-form {
+        max-width: 50%;
+    }
 }

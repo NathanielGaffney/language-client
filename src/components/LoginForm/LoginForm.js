@@ -45,7 +45,7 @@ class LoginForm extends Component {
     const { error } = this.state
     return (
       <form
-        className='LoginForm'
+        className='main-form center'
         onSubmit={this.handleSubmit}
       >
         <div role='alert'>
@@ -73,9 +73,11 @@ class LoginForm extends Component {
             required
           />
         </div>
-        <Button className='LoginItem' type='submit'>
+        <footer className='center'>
+        <Button className='LoginItem center' type='submit'>
           Login
         </Button>
+        </footer>
       </form>
     )
   }

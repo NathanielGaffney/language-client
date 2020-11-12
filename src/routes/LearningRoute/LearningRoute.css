@@ -1,0 +1,115 @@
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.learning-container{
+    padding-top: 5%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.word-translate {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 2em;
+    font-size: 1.8em;
+}
+
+#learning-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80vw;
+    padding: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.guess-submit {
+    padding: 10px 0;
+    font-size: 1.2em;
+    border-radius: 10px;
+    background-color: #d9f2c7;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.guess-submit:hover {
+    background-color: #9cc493;
+}
+
+.results-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    padding: 10px;
+}
+
+.results-p {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#speech_to_text_box {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+#speech_button {
+    font-size: 2.5em;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid grey;
+    background-color: #d9f2c7;
+    margin: 0 auto;
+}
+
+#speech_button:hover {
+    transition: .1s ease-in;
+    background-color: #9cc493;
+  }
+
+.guess-anim-enter{
+    opacity: 0;
+}
+
+.guess-anim-enter-active{
+    opacity: 1;
+    transition: opacity 200ms;
+}
+
+.guess-anim-exit{
+    opacity: 1;
+}
+
+.guess-anim-exit-active{
+    opacity: 0;
+    transition: opacity 200ms;
+}
+
+@media screen and (min-width: 768px) {
+    #learning-form {
+        max-width: 50%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #learning-form {
+        max-width: 30%;
+    }
+}

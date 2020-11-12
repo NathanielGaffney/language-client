@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import LanguageService from "../../services/language-service";
 import languageContext from "../../contexts/languageContext";
-// import './DashboardRoute.css';
+import './DashboardRoute.css';
 
 class DashboardRoute extends Component {
   state = {
@@ -13,7 +13,6 @@ class DashboardRoute extends Component {
   componentDidMount() {
     LanguageService.getWords()
       .then((res) => {
-        console.log(res)
         this.context.setLangAndWords(res)})
       .catch((error) => this.setState({ error: error }));
   }
@@ -25,9 +24,6 @@ class DashboardRoute extends Component {
         <Link to="/learn">
           <button id="learn_button">Start practicing</button>
         </Link>
-        {/* <Link to="/learn_mc">
-          <button id="learn_mc_button">Multiple choice</button>
-        </Link> */}
         <p>Total correct answers: {this.context.language.total_score}</p>
         <section className="word_list_box">
           <h3>Words to practice</h3>
