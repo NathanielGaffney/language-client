@@ -39,10 +39,6 @@ class LearningRoute extends Component {
 
     recognition.start();
 
-    recognition.onstart = () => {
-      console.log('Voice activated');
-    }
-
     recognition.onresult = (e) => {
       let current = e.resultIndex;
 
